@@ -95,8 +95,7 @@ namespace MVVMProj.Pages
             {
                 Source = pieceImage,
                 HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
-                Aspect = Aspect.Fill 
+                VerticalOptions = LayoutOptions.Center
             };
 
             Grid.SetRow(chessPiece, row);
