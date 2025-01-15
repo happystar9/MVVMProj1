@@ -37,25 +37,25 @@ namespace MVVMProj.Pages
 
                     if (row == 1)
                     {
-                        AddChessPiece("black_pawn.jpg", row, col);
+                        Add_Chess_Piece("black_pawn.jpg", row, col);
                     }
                     else if (row == 6)
                     {
-                        AddChessPiece("white_pawn.png", row, col);
+                        Add_Chess_Piece("white_pawn.png", row, col);
                     }
                     else if (row == 0)
                     {
-                        AddChessPiece(GetBlackPiece(col), row, col);
+                        Add_Chess_Piece(Get_White_Piece(col), row, col);
                     }
                     else if (row == 7)
                     {
-                        AddChessPiece(GetWhitePiece(col), row, col);
+                        Add_Chess_Piece(Get_White_Piece(col), row, col);
                     }
                 }
             }
         }
 
-        private string GetBlackPiece(int col)
+        private string Get_Black_Piece(int col)
         {
             return col switch
             {
@@ -71,7 +71,7 @@ namespace MVVMProj.Pages
             };
         }
 
-        private string GetWhitePiece(int col)
+        private string Get_White_Piece(int col)
         {
             return col switch
             {
@@ -87,7 +87,7 @@ namespace MVVMProj.Pages
             };
         }
 
-        private void AddChessPiece(string pieceImage, int row, int col)
+        private void Add_Chess_Piece(string pieceImage, int row, int col)
         {
             if (string.IsNullOrEmpty(pieceImage)) return;
 
