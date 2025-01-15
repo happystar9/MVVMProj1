@@ -6,7 +6,7 @@ namespace MVVMProj.Pages
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage(MainPageModel model)
+        public MainPage()
         {
             InitializeComponent();
             GenerateChessBoard();
@@ -34,9 +34,74 @@ namespace MVVMProj.Pages
                     Grid.SetColumn(boxView, col);
 
                     chessGrid.Children.Add(boxView);
+
+                    if (row == 1)
+                    {
+                        AddChessPiece("black_pawn.jpg", row, col);
+                    }
+                    else if (row == 6)
+                    {
+                        AddChessPiece("white_pawn.png", row, col);
+                    }
+                    else if (row == 0)
+                    {
+                        AddChessPiece(GetBlackPiece(col), row, col);
+                    }
+                    else if (row == 7)
+                    {
+                        AddChessPiece(GetWhitePiece(col), row, col);
+                    }
                 }
             }
         }
-        
+
+        private string GetBlackPiece(int col)
+        {
+            return col switch
+            {
+                0 => "black_rook.jpg",
+                1 => "black_horse.png",
+                2 => "black_bishop.jpg",
+                3 => "black_queen.jpg",
+                4 => "black_king.jpg",
+                5 => "black_bishop.jpg",
+                6 => "black_horse.png",
+                7 => "black_rook.jpg",
+                _ => string.Empty,
+            };
+        }
+
+        private string GetWhitePiece(int col)
+        {
+            return col switch
+            {
+                0 => "white_rook.jpg",
+                1 => "white_horse.jpg",
+                2 => "white_bishop.jpg",
+                3 => "white_queen.png",
+                4 => "white_king.jpg",
+                5 => "white_bishop.jpg",
+                6 => "white_horse.jpg",
+                7 => "white_rook.jpg",
+                _ => string.Empty,
+            };
+        }
+
+        private void AddChessPiece(string pieceImage, int row, int col)
+        {
+            if (string.IsNullOrEmpty(pieceImage)) return;
+
+            var chessPiece = new Image
+            {
+                Source = pieceImage,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                Aspect = Aspect.Fill 
+            };
+
+            Grid.SetRow(chessPiece, row);
+            Grid.SetColumn(chessPiece, col);
+            chessGrid.Children.Add(chessPiece);
+        }
     }
 }
