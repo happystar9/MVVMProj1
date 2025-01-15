@@ -41,11 +41,11 @@ namespace MVVMProj.Pages
                     }
                     else if (row == 6)
                     {
-                        Add_Chess_Piece("white_pawn.png", row, col);
+                        Add_Chess_Piece("white_pawn.jpg", row, col);
                     }
                     else if (row == 0)
                     {
-                        Add_Chess_Piece(Get_White_Piece(col), row, col);
+                        Add_Chess_Piece(Get_Black_Piece(col), row, col);
                     }
                     else if (row == 7)
                     {
